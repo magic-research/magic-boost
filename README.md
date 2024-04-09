@@ -6,6 +6,6 @@
 
 ***
 
-### [Project page](https://magic-boost.github.io/index.html)
+### [Project page](https://magic-research.github.io/magic-boost/)
 
 #### Code will be released here. 
