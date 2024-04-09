@@ -1,0 +1,342 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.3.2");
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./assets/style.css" media="screen" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+<html lang="en">
+
+<head>
+    <title>MagicBoost</title>
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+          if you update and want to force Facebook to re-scrape. -->
+    <!-- <meta property="og:image" content="Path to my teaser.jpg" />
+    <meta property="og:title" content="Envision3D" />
+    <meta property="og:description" content="Paper description." />
+    <meta property="twitter:title" content="Envision3D" />
+    <meta property="twitter:description" content="" />
+    <meta property="twitter:image" content="Path to my teaser.jpg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Add your Google Analytics tag here -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97476543-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-97476543-1');
+    </script>
+
+    <!-- enable math -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!-- <script>
+        function playVideos() {
+            var videos = document.getElementsByTagName('video');
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].play();
+            }
+        }
+
+        function pauseVideos() {
+            var videos = document.getElementsByTagName('video');
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].pause();
+            }
+        }
+    </script> -->
+    <style>
+        .new-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-left: 75px;
+            /* align-items: center; */
+        }
+        .new-container2 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-left: 30px;
+            /* align-items: center; */
+        }
+        .new-container3 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-left: 106px;
+            /* align-items: center; */
+        }
+        .new-container4 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-left: 60px;
+            /* align-items: center; */
+        }
+    </style>
+    
+    <script src="assets/js/video_comparison.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title" display="block">
+            <b>
+                Magic-Boost: Boost 3D 
+                Generation with Mutli-View Conditioned Diffusion
+            </b>
+        </div>
+
+        <!-- <div class="venue">
+        In Conference 20XX
+    </div> -->
+
+        <br><br>
+
+        <hr>
+
+        <h1>Additional Results (13-18/24)</h1>
+        <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td width="25%" style="text-align:center;"><b>Input</b></td>
+                    <td width="25%" style="text-align:center;"><b>MV Images</b></td>
+                    <td width="25%" style="text-align:center;"><b>Coarse Output</b></td>
+                    <td width="25%" style="text-align:center;"><b>Ours</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source data-src="./demos/armor/armor_org.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="100" class="videoMerge" id="ex1Merge" width="100"></canvas>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex2" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source data-src="./demos/armor/armor_final.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="100" class="videoMerge" id="ex1Merge" width="100"></canvas>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td><img width=100% src="./demos/trump/input.png"></td>
+                    <td><img width=100% src="./demos/trump/mvimage.png"></td>
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_org.mp4" style="width: 100%; height: auto;"></video></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_final.mp4" style="width: 100%; height: auto"></video></td> -->
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex3" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/trump/trump_org.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex3Merge" width="100"></canvas>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex4" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/trump/trump_final.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex4Merge" width="100"></canvas>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td><img width=100% src="./demos/windmill/input.png"></td>
+                    <td><img width=100% src="./demos/windmill/mvimage.png"></td>
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_org.mp4" style="width: 100%; height: auto;"></video></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_final.mp4" style="width: 100%; height: auto"></video></td> -->
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex5" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/windmill/windmill_org.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex5Merge" width="100"></canvas>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex6" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/windmill/windmill_final.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex6Merge" width="100"></canvas>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td><img width=100% src="./demos/santa_claus_head/input.png"></td>
+                    <td><img width=100% src="./demos/santa_claus_head/mvimage.png"></td>
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_org.mp4" style="width: 100%; height: auto;"></video></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_final.mp4" style="width: 100%; height: auto"></video></td> -->
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex7" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/santa_claus_head/santa_claus_head_org.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex7Merge" width="100"></canvas>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex8" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/santa_claus_head/santa_claus_head_final.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex8Merge" width="100"></canvas>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td><img width=100% src="./demos/horse/input.png"></td>
+                    <td><img width=100% src="./demos/horse/mvimage.png"></td>
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_org.mp4" style="width: 100%; height: auto;"></video></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_final.mp4" style="width: 100%; height: auto"></video></td> -->
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex9" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/horse/horse_org.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex9Merge" width="100"></canvas>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex10" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/horse/horse_final.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex10Merge" width="100"></canvas>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- <div class="new-container">
+            <table width="1200" class="center">
+                <tr>
+                    <td><img width=100% src="./demos/white_hat_woman/input.png"></td>
+                    <td><img width=100% src="./demos/white_hat_woman/mvimage.png"></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_org.mp4" style="width: 100%; height: auto;"></video></td> -->
+                    <!-- <td><video muted autoplay="autoplay" loop="loop" src="./demos/armor/armor_final.mp4" style="width: 100%; height: auto"></video></td> -->
+                    <!-- <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex11" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/white_hat_woman/white_hat_woman_org.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex11Merge" width="100"></canvas>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row captioned_videos">
+                            <div class="video-compare-container" style="width: 100%">
+                                <video class="video lazy" id="ex12" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                                    <source data-src="./demos/white_hat_woman/white_hat_woman_final.mp4" type="video/mp4"></source>
+                                </video>
+                                <canvas height="100" class="videoMerge" id="ex12Merge" width="100"></canvas>
+                            </div>
+                        </div> 
+                    </td>
+                </tr>
+            </table>
+        </div> -->
+        
+        <br>
+        <div class="row" style="margin-bottom: 0px;">
+            <div class="col-sm-3" style="margin-left:auto">
+                <a href="gallery_1.html" class="btn btn-primary btn-lg ">
+                    Previous Page
+                </a>
+            </div>
+            <div class="col-sm-3" style="margin-right:auto">
+                <a href="gallery_3.html" class="btn btn-primary btn-lg ">
+                    Next Page
+                </a>
+            </div>
+        </div>
+        <br>
+
+        <br><br>
+    </div>
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <footer>
+            <p> Website template from <a href="https://dreamfusion3d.github.io/">DreamFusion</a> and <a href="https://mv-dream.github.io/">MVDream</a>. We thank the authors for the open-source code.</p>
+        </footer>
+    </div>
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+</body>
+
+</html>
