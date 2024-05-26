@@ -1,0 +1,114 @@
+name: "mesh-fitting-nerf-instantmesh"
+tag: "${rmspace:,_}"
+exp_root_dir: "outputs"
+seed: 0
+
+data_type: "random-camera-datamodule"
+data:
+  batch_size: [4, 2, 1]
+  width: [64, 128, 256]
+  height: [64, 128, 256]
+  resolution_milestones: [500, 1000]
+  camera_distance_range: [4.0, 4.0]
+  elevation_range: [20, 20]
+  light_sample_strategy: "magic3d"
+  fovy_range: [30., 30.]
+  eval_camera_distance: 4.0
+  eval_fovy_deg: 30.
+  eval_elevation_deg: 20.
+
+system_type: "mesh-fitting-system"
+system:
+  geometry_type: "implicit-volume"
+  geometry:
+    radius: 1.0
+    normal_type: "analytic"
+    density_bias: "blob_magic3d"
+    density_activation: softplus
+    density_blob_scale: 10.
+    density_blob_std: 0.5
+
+    pos_encoding_config:
+      otype: HashGrid
+      n_levels: 16
+      n_features_per_level: 2
+      log2_hashmap_size: 19
+      base_resolution: 16
+      per_level_scale: 1.447269237440378 # max resolution 4096
+
+  material_type: "no-material"
+  material:
+    n_output_dims: 3
+    color_activation: sigmoid
+    requires_normal: true
+
+  background_type: "solid-color-background"
+  background:
+    n_output_dims: 3
+    color: [1, 1, 1]
+    # random_aug: true
+
+  renderer_type: "nerf-volume-renderer"
+  renderer:
+    radius: ${system.geometry.radius}
+    num_samples_per_ray: 512
+
+  guidance_type: "mesh-fitting-guidance"
+  guidance:
+    geometry_type: "mesh-fitting-obj-mesh"
+    geometry:
+      shape_init: ???
+      shape_init_params: 1.0
+      radius: 1.0 # consistent with coarse
+      shape_init_mesh_up: "+z"
+      shape_init_mesh_front: "+x"
+    material_type: "no-material"
+    material:
+      n_output_dims: 3
+      color_activation: sigmoid
+    background_type: "solid-color-background"
+    background:
+      n_output_dims: 3
+      color: [1, 1, 1]
+      # random_aug: true
+    renderer_type: "mesh-fitting-renderer"
+    renderer:
+      context_type: cuda
+
+  loggers:
+    wandb:
+      enable: false
+      project: "threestudio"
+      name: None
+
+  loss:
+    lambda_l1: 100.
+    lambda_mask: 100.
+    lambda_normal: 0.
+    lambda_sparsity: 0.
+    lambda_eikonal: 0.
+    lambda_geometry: 0.
+    lambda_orient: 0.5
+
+  optimizer:
+    name: Adam
+    args:
+      lr: 0.1
+      betas: [0.9, 0.99]
+      eps: 1.e-15
+    params:
+      geometry:
+        lr: 0.01
+
+trainer:
+  max_steps: 1000
+  log_every_n_steps: 1
+  num_sanity_val_steps: 1
+  val_check_interval: 100
+  enable_progress_bar: true
+  precision: 16-mixed
+
+checkpoint:
+  save_last: true
+  save_top_k: -1
+  every_n_train_steps: ${trainer.max_steps}

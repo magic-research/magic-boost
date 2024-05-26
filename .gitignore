@@ -1,0 +1,7 @@
+outputs/
+*/__pycache__/
+*/*/__pycache__
+*/*/*/__pycache__
+.threestudio_cache/
+load/mesh_*
+load/mv_*
