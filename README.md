@@ -3,7 +3,7 @@
   <p align="center">
     <a href="https://github.com/yf1019">Fan Yang</a>
     ·
-    <a href="http://jeff95.me/">Jianfeng Zhang</a>
+    <a href="http://jeff95.me/">Jianfeng Zhang</a>†
     ·
     <a href="https://seasonsh.github.io/">Yichun Shi</a>
     ·
@@ -26,7 +26,20 @@
         <a href='https://magic-research.github.io/magic-boost'><img src='https://img.shields.io/badge/Project_Page-MagicBoost-green' alt='Project Page'></a>
     <br>
     <b>Nanyang Technological University &nbsp; | &nbsp;  ByteDance</b>
-  </p>
+  </p>  
+
+  <div align="center">
+      <sup>†&nbsp;</sup>Corresponding Author
+  </div>
+    
+ <div align="center">
+    <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.
+  </div> 
+
+  </p>  
+    
+    
+  
 
 <div align="center">
   <img width="800" src="assets/teaser.png">
