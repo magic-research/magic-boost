@@ -23,7 +23,8 @@ We are not able to open the reproduced Instant3D model currently. However, we pr
   We provide pre-computed four view images and extracted meshes from the reproduced instant3d, which allows users to do a simple test of the model. 
   Please download the pre-computed images and meshes from [Huggingface MagicBoost Demo Page](https://huggingface.co/datasets/yyyfan/magic-boost-demo) and put the images and meshes into ```./load/mv_instant3d``` and ```./load/mesh_instant3d```
 
-  <video src="./assets/demo_instant3d.mp4" controls="controls" width="500px"></video>
+https://github.com/magic-research/magic-boost/assets/25397555/a42c96d2-6d8e-4227-b94b-c3951d267155
+
 
 * #### InstantMesh
   Thanks to the open project [InstantMesh](https://github.com/TencentARC/InstantMesh), our model now supports using InstantMesh as a base model. Please install InstantMesh following the open repo [InstantMesh](https://github.com/TencentARC/InstantMesh) and run commands 
@@ -37,7 +38,8 @@ We are not able to open the reproduced Instant3D model currently. However, we pr
   ```
   Put the final mv images and the meshes into ```./load/mv_instantmesh``` and ```./load/mesh_instantmesh```
 
-  <video src="./assets/demo_instantmesh.mp4" controls="controls" width="500px"></video>
+https://github.com/magic-research/magic-boost/assets/25397555/9ba9cc5b-0848-48be-b270-3ea2220bde0e
+
 
 ### 2. Convert Mesh into Nerf
 We first convert the coarse mesh into Nerf for differentiable rendering. To convert the mesh into Nerf, simply run 
