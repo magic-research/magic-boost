@@ -46,7 +46,7 @@
 </div>
 
 ## 📢 News
-* **[2024.05.26]** Release refinement code for Instant3D and InstantMesh. Better mesh refinement method and more coarse-stage models support are coming soon, stay tuned!
+* **[2024.05.26]** Release refinement code for Instant3D and InstantMesh. Better refinement method and more coarse-stage models support are coming soon, stay tuned!
 * **[2024.04.09]** Release MagicBoost paper and project page.
 
 ## ⚒️ Installation 
@@ -123,7 +123,7 @@ bash run_refine_[mode].sh
 - [ ] Release our re-produced Instant3D.
 - [ ] Release our own Gaussian-based Reconstruction Model.
 - [ ] Release huggingface gradio demo.
-- [ ] Better mesh refinement method is coming soon.
+- [ ] Higher resolution and better mesh refinement methods are coming soon.
 
 ## 🙏 Acknowledgements
 This code is built based on several open repos including [threestudio](https://github.com/threestudio-project/threestudio), [MVDream](https://github.com/bytedance/MVDream-threestudi), [ImageDream-threestudio](https://github.com/bytedance/ImageDream), [InstantMesh](https://github.com/TencentARC/InstantMesh) and [Dreamcraft3d](https://github.com/deepseek-ai/DreamCraft3D). We sincerely thank the authors of these projects for their excellent contributions to 3D generation. 
