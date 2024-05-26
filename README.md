@@ -1,20 +1,49 @@
-# Magic-Boost: Boost 3D Generation with Multi-View Conditioned Diffusion
-Fan Yang, Jianfeng Zhang, Yichun Shi, Bowen Zhang, Chenxu Zhang, Huichao Zhang, Xiaofeng Yang, Xiu Li, Jiasheng Feng, Guosheng Lin
-
-### [Project page](https://magic-research.github.io/magic-boost/) |  [Paper](https://arxiv.org/abs/2404.06429)
+<p align="center">
+  <h2 align="center">Magic-Boost: Boost 3D Generation with Multi-View Conditioned Diffusion</h2>
+  <p align="center">
+    <a href="https://github.com/yf1019">Fan Yang</a>
+    ·
+    <a href="http://jeff95.me/">Jianfeng Zhang</a>
+    ·
+    <a href="https://seasonsh.github.io/">Yichun Shi</a>
+    ·
+    <a href="https://magic-research.github.io/magic-boost/">Bowen Chen</a>
+    ·
+    <a href="https://zhangchenxu528.github.io/">Chenxu Zhang</a>
+    ·
+    <a href="https://magic-research.github.io/magic-boost/">Huichao Zhang</a>
+    ·
+    <a href="https://magic-research.github.io/magic-boost/">Xiaofeng Yang</a>
+    ·
+    <a href="https://lixiulive.com/">Xiu Li</a>
+    ·
+    <a href="https://sites.google.com/site/jshfeng/home">Jiashi Feng</a>
+    ·
+    <a href="https://guosheng.github.io/">Guosheng Lin</a>
+    <br>
+    <br>
+        <a href="https://arxiv.org/abs/2404.06429"><img src='https://img.shields.io/badge/arXiv-MagicBoost-red' alt='Paper PDF'></a>
+        <a href='https://magic-research.github.io/magic-boost'><img src='https://img.shields.io/badge/Project_Page-MagicBoost-green' alt='Project Page'></a>
+    <br>
+    <b>Nanyang Technological University &nbsp; | &nbsp;  ByteDance</b>
+  </p>
 
 <div align="center">
   <img width="800" src="assets/teaser.png">
 </div>
 
-## Installation 
+## 📢 News
+* **[2024.05.26]** Release refinement code for Instant3D and InstantMesh. Better mesh refinement method and more coarse-stage models support are coming soon, stay tuned!
+* **[2024.04.09]** Release MagicBoost paper and project page.
+
+## ⚒️ Installation 
 
 This part is the same as original [MVDream-threestudio](https://github.com/bytedance/MVDream-threestudio) or [ImageDream-threestudio](https://github.com/bytedance/ImageDream). Skip it if you already have installed the environment.
 
-## Pretrained weights
+### Pretrained weights
 Clone the modelcard on the [Huggingface MagicBoost Model Page](https://huggingface.co/yyyfan/magic-boost/) and put the .pt files under  ```./extern/MVC/checkpoints/``` 
 
-## Quick Start
+## 🔥 Quick Start
 
 ### 1. Get the multi-view images and coarse meshes.
 We are not able to open the reproduced Instant3D model currently. However, we provide two ways to use our model:
@@ -41,7 +70,7 @@ https://github.com/magic-research/magic-boost/assets/25397555/a42c96d2-6d8e-4227
 https://github.com/magic-research/magic-boost/assets/25397555/9ba9cc5b-0848-48be-b270-3ea2220bde0e
 
 
-### 2. Convert Mesh into Nerf
+### 2. Convert Mesh into NeRF
 We first convert the coarse mesh into Nerf for differentiable rendering. To convert the mesh into Nerf, simply run 
 ```
 python launch.py --gpu 0 --config ./configs/mesh-fitting-[instant3d/instantmesh].yaml --train tag=[name] system.guidance.geometry.shape_init=[target_obj_path]
@@ -75,10 +104,18 @@ bash run_refine_[mode].sh
 
 - For diffusion only model, refer to subdir ```./extern/MVC/```. Check ```./extern/MVC/README.md``` for instruction.
 
-## Acknowledgements
+## 🚩TODO/Updates
+- [x] Release Magic-Boost Refine code.
+- [x] Support for InstantMesh.
+- [ ] Release our re-produced Instant3D.
+- [ ] Release our own Gaussian-based Reconstruction Model.
+- [ ] Release huggingface gradio demo.
+- [ ] Better mesh refinement method is coming soon.
+
+## 🙏 Acknowledgements
 This code is built based on several open repos including [threestudio](https://github.com/threestudio-project/threestudio), [MVDream](https://github.com/bytedance/MVDream-threestudi), [ImageDream-threestudio](https://github.com/bytedance/ImageDream), [InstantMesh](https://github.com/TencentARC/InstantMesh) and [Dreamcraft3d](https://github.com/deepseek-ai/DreamCraft3D). We sincerely thank the authors of these projects for their excellent contributions to 3D generation. 
 
-## Citing
+## 🎓 Citation
 If you find Magic-Boost helpful, please consider citing:
 
 ``` bibtex
