@@ -60,7 +60,7 @@ system:
       shape_init: ???
       shape_init_params: 1.0
       radius: 1.0 # consistent with coarse
-      shape_init_mesh_up: "+z"
+      shape_init_mesh_up: "-z"
       shape_init_mesh_front: "+x"
     material_type: "no-material"
     material:
