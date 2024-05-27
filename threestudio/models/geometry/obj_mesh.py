@@ -18,6 +18,7 @@ class OBJMesh(BaseExplicitGeometry):
         shape_init_params: Optional[Any] = None
         shape_init_mesh_up: str = "+z"
         shape_init_mesh_front: str = "+x"
+        is_instantmesh: bool = False
 
     cfg: Config
 
@@ -43,6 +44,9 @@ class OBJMesh(BaseExplicitGeometry):
         # centroid = mesh.vertices.mean(0)
         # mesh.vertices = mesh.vertices - centroid
 
+        if self.cfg.is_instantmesh:
+            mesh.vertices = mesh.vertices @ np.array([[1, 0, 0], [0, 1, 0], [0, 0, -1]])
+            
         # align to up-z and front-x
         dirs = ["+x", "+y", "+z", "-x", "-y", "-z"]
         dir2vec = {
@@ -75,7 +79,7 @@ class OBJMesh(BaseExplicitGeometry):
         # scaling
         # scale = np.abs(mesh.vertices).max()
         # mesh.vertices = mesh.vertices / scale * self.cfg.shape_init_params
-        # mesh.vertices = np.dot(mesh2std, mesh.vertices.T).T
+        mesh.vertices = np.dot(mesh2std, mesh.vertices.T).T
 
         self.normal = torch.tensor(mesh.vertex_normals, dtype=torch.float32).to(self.device).contiguous()
 
