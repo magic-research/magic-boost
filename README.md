@@ -102,8 +102,11 @@ To refine the converted Nerf, simply run
 ```
 export PYTHONPATH=$PYTHONPATH:./extern/MVC
 
-python launch.py --gpu 0 --config ./configs/refine_[instant3d/instantmesh].yaml --train tag=[name] system.prompt_processor.prompt="a " data.mvcond_dir=[multi-view_image_path] data.image_path=[input_image_path] system.weights=[ckpts_from_last_step]
+python launch.py --gpu 0 --config ./configs/refine_[instant3d/instantmesh].yaml --train tag=[name] system.prompt_processor.prompt="a " data.mvcond_dir=[multi-view_image_path] data.image_path=[multi-view_image_path]/0.png system.weights=[ckpts_from_last_step]
 ```
+
+**Notes**: 
+- By default, we use the first image in the multi-view condition set as the reference image. To use other views, please adjust the default_[elevation_deg/azimuth_deg/fov/camera_dist] according to the selected view in the config.
 
 **Recommend:** We also provide a script to automaticly search the ckpts and write the commands, simply run 
 ```
@@ -112,7 +115,7 @@ python threestudio/scripts/batch_refine.py --mode [instant3d/instantmesh]
 bash run_refine_[mode].sh
 ```
 
-### Notes:
+### Tips:
 - We use batchsize 4 as default in our experiments, which would need an A100 GPU to do the computation in the refinement stage. To use the model with less VRAM, please adjust ```data.random_camera.batchsize``` in the config file to be lower. However, this may lead to slightly degraded results compared to batchsize of 4. Increasing the total refinement steps may help to address the problem and get a better result.  
 
 - For diffusion only model, refer to subdir ```./extern/MVC/```. Check ```./extern/MVC/README.md``` for instruction.
