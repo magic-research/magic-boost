@@ -24,7 +24,7 @@ gradio
 git+https://github.com/ashawkey/envlight.git
 torchmetrics
 rembg
-enips_exts
+einops_exts
 rotary_embedding_torch
 
 # deepfloyd
